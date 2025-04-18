@@ -1,3 +1,5 @@
+import { tasksContainer } from "./js/dom";
+import { toggleTask } from "./js/toggleTask";
 import "./styles.css";
 
-console.log("Hello, Webpack!");
+toggleTask(tasksContainer);

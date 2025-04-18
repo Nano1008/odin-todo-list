@@ -168,6 +168,7 @@ button {
 /* Task details (expanded section) */
 .task-details {
     padding: 20px;
+    display: none;
 }
 
 /* Form elements */
