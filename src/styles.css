@@ -1,3 +1,233 @@
+/* Base styles and resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
 body {
-    background-color: blue;
+    background-color: #f9fafc;
+    color: #2d3142;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 14px;
+}
+
+/* Main application layout */
+.app-container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    height: 80vh;
+    margin: 40px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background-color: white;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 260px;
+    background-color: #fafbfd;
+    border-right: 1px solid #eef1f8;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.sidebar-header {
+    padding: 20px 0;
+}
+
+.sidebar-header h2 {
+    color: #5b6bd1;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.project-list {
+    flex-grow: 1;
+    margin-top: 20px;
+}
+
+.project {
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    background-color: #5b6bd1;
+    transition: all 0.2s ease;
+}
+
+.project h3 {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.add-project-btn {
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+
+.add-project-btn button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 20px;
+    background-color: #f0f2f9;
+    color: #5b6bd1;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.add-project-btn button:hover {
+    background-color: #e0e4f6;
+}
+
+/* Main content area */
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.main-header h1 {
+    font-size: 24px;
+    color: #2d3142;
+}
+
+.add-task-btn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #5b6bd1;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(91, 107, 209, 0.2);
+    transition: all 0.2s ease;
+}
+
+.add-task-btn:hover {
+    background-color: #4a59b9;
+    box-shadow: 0 4px 8px rgba(91, 107, 209, 0.3);
+}
+
+/* Task styles */
+.tasks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.task {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 2px solid #f0f2f9;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.task:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.task-header {
+    padding: 20px;
+    cursor: pointer;
+    position: relative;
+    background-color: #f9fafc;
+    border-bottom: 1px solid #eef1f8;
+}
+
+.task-header h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #2d3142;
+    position: relative;
+}
+
+.due-date {
+    font-size: 13px;
+    color: #8d93a8;
+}
+
+/* Task details (expanded section) */
+.task-details {
+    padding: 20px;
+}
+
+/* Form elements */
+.description,
+.notes {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #8d93a8;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #eef1f8;
+    background-color: #f9fafc;
+    font-size: 14px;
+    color: #2d3142;
+}
+
+/* Button styles */
+.task-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-size: 12px;
+    transition: all 0.2s ease;
+}
+
+.edit-btn {
+    background-color: #f9fafc;
+    border: 1px solid #eef1f8;
+    color: #5b6bd1;
+}
+
+.delete-btn {
+    background-color: #f9fafc;
+    border: 1px solid #eef1f8;
+    color: #ff7285;
+}
+
+.edit-btn:hover {
+    background-color: #5b6bd1;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #ff7285;
+    color: white;
 }
