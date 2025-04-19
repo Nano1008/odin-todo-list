@@ -10,11 +10,11 @@ function createTaskElement(title, dueDate) {
     <div class="task-details" style="display: none;">
       <div class="description">
         <label>DESCRIPTION</label>
-        <input type="text">
+        <input type="text" disabled>
       </div>
       <div class="notes">
         <label>NOTES</label>
-        <input type="text">
+        <input type="text" disabled>
       </div>
       <div class="task-actions">
         <button class="edit-btn">Edit</button>
