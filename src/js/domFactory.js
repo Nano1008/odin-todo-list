@@ -52,4 +52,13 @@ function createTaskForm(onSubmit) {
     return taskForm;
 }
 
-export { createTaskElement, createTaskForm };
+function createProjectElement(name) {
+  const project = document.createElement("div");
+  project.classList.add("project");
+
+  project.innerHTML = `<h3>${name}</h3>`;
+  return project;
+}
+
+
+export { createTaskElement, createTaskForm, createProjectElement };

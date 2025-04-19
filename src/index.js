@@ -1,16 +1,18 @@
 import "./styles.css";
-import { addTaskBtn, tasksContainer } from "./js/dom";
-import { appendTask, showTaskForm } from "./js/createTask";
+import { tasksContainer } from "./js/dom";
+import { addTask } from "./js/addTask";
 import { toggleTask } from "./js/toggleTask";
 import { editTask } from "./js/editTask";
 import { deleteTask } from "./js/deleteTask";
+import { addProject, selectProject } from "./js/project";
 
+// Task
 toggleTask(tasksContainer);
+addTask(tasksContainer);
 editTask(tasksContainer);
 deleteTask(tasksContainer);
 
-addTaskBtn.addEventListener("click", () => {
-    showTaskForm(tasksContainer, (title, due) => {
-        appendTask(tasksContainer, title, due);
-    });
-});
+// Project
+addProject();
+selectProject();
+

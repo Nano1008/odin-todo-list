@@ -61,14 +61,20 @@ button {
     padding: 12px 15px;
     margin-bottom: 8px;
     border-radius: 8px;
-    background-color: #5b6bd1;
     transition: all 0.2s ease;
 }
 
+.project.active {
+    background-color: #5b6bd1;
+}
+
 .project h3 {
-    color: white;
     font-size: 14px;
     font-weight: 500;
+}
+
+.project.active h3 {
+    color: white;
 }
 
 .add-project-btn {
