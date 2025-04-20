@@ -1,5 +1,4 @@
-import { createTaskElement, createTaskForm } from "./domFactory";
-import { addTaskBtn } from "./dom";
+import { createTaskElement, createTaskForm } from "./dom.js";
 
 function showTaskForm(container, onSubmit) {
   const form = createTaskForm(onSubmit);
@@ -11,13 +10,19 @@ function appendTask(container, title, dueDate) {
   container.appendChild(newTask);
 }
 
-function addTask(container) {
-  addTaskBtn.addEventListener("click", () => {
-    showTaskForm(container, (title, due) => {
-      appendTask(container, title, due);
-    });
-  });
+function addTask() {
+  document.body.addEventListener("click", (e) => {
+    if (e.target.classList.contains("add-task-btn")) {
+        const mainContent = e.target.closest(".main-content");
+        const tasksContainer = mainContent.querySelector(".tasks-container");
 
+        if (mainContent.querySelector(".task-form")) return;
+
+        showTaskForm(tasksContainer, (title, due) => {
+            appendTask(tasksContainer, title, due);
+        });
+    }
+});
 }
 
 export { addTask };

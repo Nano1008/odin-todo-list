@@ -1,5 +1,5 @@
-function editTask(container) {
-    container.addEventListener('click', (e) => {
+function editTask() {
+    document.body.addEventListener('click', (e) => {
         const editBtn = e.target.closest('.edit-btn');
         if (!editBtn) return;
 
