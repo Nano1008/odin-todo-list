@@ -1,9 +1,21 @@
 import { addProjectBtn, projectList, appContainer, createProjectElement, createMainContent } from "./dom.js";
+import { updateData } from "./dataStore.js";
 
 function addProject() {
     addProjectBtn.addEventListener("click", () => {
         const name = prompt("Enter a new project name:");
         if (!name) return;
+
+        const id = name.toLowerCase().replace(/\s+/g, "-"); // e.g., "My Project" => "my-project"
+
+        // Add to dataStore
+        updateData((data) => {
+            data.projects[id] = {
+                name,
+                tasks: [],
+            };
+            data.activeProject = id; // Set the new project as active
+        });
 
         // 1. Create sidebar project
         const newProject = createProjectElement(name);
@@ -33,6 +45,11 @@ function selectProject() {
         if (!selectedProject) return;
 
         const projectName = selectedProject.getAttribute("data-project");
+
+        // Update active project in dataStore
+        updateData((data) => {
+            data.activeProject = projectName;
+        });
 
         // Set active style
         projectList.querySelectorAll(".project").forEach((proj) => {

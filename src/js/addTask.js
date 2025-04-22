@@ -1,4 +1,5 @@
 import { createTaskElement, createTaskForm } from "./dom.js";
+import { updateData, getData } from "./dataStore.js";
 
 function showTaskForm(container, onSubmit) {
   const form = createTaskForm(onSubmit);
@@ -13,16 +14,25 @@ function appendTask(container, title, dueDate) {
 function addTask() {
   document.body.addEventListener("click", (e) => {
     if (e.target.classList.contains("add-task-btn")) {
-        const mainContent = e.target.closest(".main-content");
-        const tasksContainer = mainContent.querySelector(".tasks-container");
+      const active = getData().activeProject;
+      const mainContent = e.target.closest(".main-content");
+      const tasksContainer = mainContent.querySelector(".tasks-container");
 
-        if (mainContent.querySelector(".task-form")) return;
+      if (mainContent.querySelector(".task-form")) return;
 
-        showTaskForm(tasksContainer, (title, due) => {
-            appendTask(tasksContainer, title, due);
+      showTaskForm(tasksContainer, (title, due) => {
+        appendTask(tasksContainer, title, due);
+        updateData(data => {
+          data.projects[active].tasks.push({
+            title,
+            due,
+            description: "",
+            notes: ""
+          });
         });
+      });
     }
-});
+  });
 }
 
 export { addTask };
